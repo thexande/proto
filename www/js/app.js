@@ -4,7 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('proto', [
+  'ionic', 
+  'proto.controllers',
+  'proto.loginController',
+  'proto.registerController'
+  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,6 +36,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
+    .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signup.html',
+    controller: 'registerController'
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginController'
+  })
 
   .state('app.search', {
     url: '/search',
@@ -40,7 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-
+  
   .state('app.browse', {
       url: '/browse',
       views: {
@@ -69,5 +85,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });
