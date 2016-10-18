@@ -1,35 +1,29 @@
-<ion-view hide-back-button="false" title="Login" hide-nav-bar="false" >
-  <ion-content class="has-header">
-  
-	<form name="form_login" ng-submit="doLogin(userLogin)" novalidate>
-	  	<div class="list">
-		  
-		  <label class="item item-input item-floating-label">
-		    <span class="input-label">Email</span>
-		    <input type="text" ng-model="$parent.userLogin.username" id="user_name" placeholder="Email">
-		  </label>
+<ion-modal-view class="bg-gradient">
+  <ion-header-bar class="no-bg b-none">
+    <h1 class="title"></h1>
+    <button class="button button-icon button-clear button-light ion-android-close" ng-click="closeLogin()"></button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list card"> 
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="email" focus-me>
+      </label>
+      <label class="item item-input">
+      <span class="input-label">Password</span>
+        <input type="password">
+      </label>
+    </div>
 
-		  <label class="item item-input item-floating-label">
-		    <span class="input-label">Password</span>
-		    <input type="text" ng-model="$parent.userLogin.password" id="user_pass" placeholder="Password">
-		  </label>
-		  
-		</div>
-		<div class="padding">
-			<button type="submit" class="button button-block button-calm">Login</button>
-		</div>
-	 </form>
+    <button class="button button-block button-outline button-light" ng-click="goToHome()"><b>Sign in</b></button>
 
-	 <div class="padding">
-	 <div class="padding">
-	    <button type="submit" class="button button-block button-calm" ui-sref="signup">Signup</button>
-	 </div>
-	 <div class="padding">
-		<button type="submit" class="button button-block button-calm" ui-sref="reset">Forgot Password</button>
-	 </div>	
-	 <div class="padding">
-		<button type="submit" class="button button-block button-calm"ng-click="loginWithFacebook()">Login With Facebook</button>
-	 </div>	
-	
+    <div class="light row">
+      <div class="col">
+        Forgot password
+      </div>
+      <div class="col text-right">
+        <a href="" class="light" ng-click="closeLogin(); openRegister()">Join Now</a>
+      </div>
+    </p>
   </ion-content>
-</ion-view>
+</ion-modal-view>
