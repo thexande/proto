@@ -1,6 +1,7 @@
 angular.module('proto.loginController', [])
 
-.controller('loginController', ['$scope', '$firebaseArray', 'CONFIG', '$document', '$state', function($scope, $firebaseArray, CONFIG, $document, $state) {
+.controller('loginController', ['$scope', '$firebaseArray', 'CONFIG', '$document', '$state', '$location', 
+function($scope, $firebaseArray, CONFIG, $document, $state, $location) {
 
     $scope.loginClicked = function() {
         console.log('clicked')
