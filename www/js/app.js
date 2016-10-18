@@ -11,6 +11,7 @@ angular.module('proto', [
   'proto.controllers',
   'proto.loginController',
   'proto.registerController',
+  'proto.profileController',
 
   'proto.facebookService'
 
@@ -80,6 +81,15 @@ angular.module('proto', [
         }
       }
     })
+  .state('app.profile', {
+      url: '/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/profile.html',
+          controller: 'profileController',
+        }
+      }
+    })
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -99,6 +109,7 @@ angular.module('proto', [
       }
     }
   });
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 });
