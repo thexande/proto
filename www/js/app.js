@@ -6,12 +6,17 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('proto', [
   'ionic', 
+  'firebase',
+  'proto.configs',
   'proto.controllers',
   'proto.loginController',
-  'proto.registerController'
+  'proto.registerController',
+
+  'proto.facebookService'
+
   ])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,CONFIG) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -24,8 +29,18 @@ angular.module('proto', [
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-  });
+      
+  //firebase
+    firebase.initializeApp({
+      apiKey: CONFIG.FIREBASE_API,
+      authDomain: CONFIG.FIREBASE_AUTH_DOMAIN,
+      databaseURL: CONFIG.FIREBASE_DB_URL,
+      storageBucket: CONFIG.FIREBASE_STORAGE,
+      messagingSenderId: CONFIG.FIREBASE_STORAGE
+    })
+  })
 })
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
