@@ -3,9 +3,6 @@ angular.module('proto.loginController', [])
     function($scope, $firebaseArray, CONFIG, $document, $state, $location) {
         var provider = new firebase.auth.FacebookAuthProvider();
         provider.addScope('user_birthday')
-        provider.setCustomParameters({
-            'display': 'popup'
-        });
 
         $scope.loginClicked = function() {
             console.log('clicked')
